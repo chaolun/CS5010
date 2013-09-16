@@ -67,8 +67,50 @@
 ;Using the interaction window of DrRacket as a calculator, compute the area included in circles of radius 1, 5, and 7.
 
 ; circ-area : number  -> number
-; GIVEN: the radius r of a circl
+; GIVEN: the radius r of a circle
 ; RETURNS: its area, using the formula pi*r^2
 ; Examples:
 ; (circ-area 0) -> 0
 ; (circ-area 1) -> 3.131492653589793
+
+(define (circ-area r) (* r r pi))
+
+(circ-area 5)
+
+; Ex 9
+; even: number -> boolean
+; GIVEN: a number
+; RETURNS: a true if it is even false otherwise
+; examples:
+; (even 14) -> true
+; (even 13) -> false
+
+(define (even number) (cond
+                        [(= (remainder number 2) 0) true]
+                        [else false]
+                        )
+  )
+
+(even 12)
+(even 13)
+(even 1245231152)
+
+; Ex 10
+; sumOfLarger2 number number number -> number
+; GIEVEN: three numbers 
+; Returns: sum of the larger two of the three
+; examples
+; (sumOfLarger2 1 2 3) -> 5
+; (sumOfLarger2 4 2 4) -> 8
+
+(define (sumOfLarger2 a b c) (cond
+                               [(<= a b c) (+ b c)]
+                               [(<= b a c) (+ a c)]
+                               [(<= c a b) (+ a b)]
+                               )
+  )
+
+(check-expect (sumOfLarger2 1 2 3) 5)
+(check-expect (sumOfLarger2 4 2 4) 8)
+(check-expect (sumOfLarger2 -2 4 -2) 2)
+
